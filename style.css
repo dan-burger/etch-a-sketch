@@ -1,0 +1,22 @@
+body{
+    background-color: pink;
+}
+
+h1{
+    text-align: center;
+}
+
+.container{
+    margin-right: auto;
+    margin-left: auto;
+    width: 600px;
+    height: 600px;
+    border: black solid 1px;
+    display: grid;
+}
+
+.btnContainer{
+    display:flex;
+    justify-content: center;
+    gap: 16px;
+}
