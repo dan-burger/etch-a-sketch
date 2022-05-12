@@ -1,5 +1,9 @@
 //container queryselect
 let container = document.querySelector(".container");
+let tenBtn = document.querySelector(".tenBtn");
+let twentyBtn = document.querySelector(".twentyBtn");
+let thirtyBtn = document.querySelector(".thirtyBtn");
+let clearBtn = document.querySelector(".clearBtn");
 let currentNum = 20;
 let currentColor = "black";
 
@@ -13,7 +17,6 @@ function addDivs(numberOfDivs) {
             let div = document.createElement("div");
             div.classList.add("grid");
             div.style.background = "white";
-            div.style.border = "1px solid black"
             container.appendChild(div);
         }
     }
@@ -29,6 +32,40 @@ function changeColor() {
     this.style.backgroundColor = currentColor;
 }
 
+function clear() {
+    while (container.hasChildNodes()) {
+        container.removeChild(container.lastChild);
+    }
+    addDivs(currentNum);
+}
 
+
+
+clearBtn.addEventListener("click", clear);
+tenBtn.addEventListener("click", () => {
+    if (currentNum != 10) {
+        currentNum = 10;
+        clear()
+    }
+});
+
+twentyBtn.addEventListener("click", () => {
+    if (currentNum != 20) {
+        currentNum = 20;
+        clear()
+    }
+});
+
+
+thirtyBtn.addEventListener("click", () => {
+    if (currentNum != 30) {
+        currentNum = 30;
+        clear();
+    }
+});
+
+function colorSelected(element){
+    currentColor = element.value;
+}
 
 addDivs(20);
