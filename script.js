@@ -1,4 +1,4 @@
-//container queryselect
+//creating variables
 let container = document.querySelector(".container");
 let tenBtn = document.querySelector(".tenBtn");
 let twentyBtn = document.querySelector(".twentyBtn");
@@ -27,11 +27,12 @@ function addDivs(numberOfDivs) {
 
 }
 
-//change color
+//change color of "pen"
 function changeColor() {
     this.style.backgroundColor = currentColor;
 }
 
+//clears the board then adds divs based on what size was current
 function clear() {
     while (container.hasChildNodes()) {
         container.removeChild(container.lastChild);
@@ -40,7 +41,7 @@ function clear() {
 }
 
 
-
+//event listeners for the buttons
 clearBtn.addEventListener("click", clear);
 tenBtn.addEventListener("click", () => {
     if (currentNum != 10) {
@@ -64,8 +65,11 @@ thirtyBtn.addEventListener("click", () => {
     }
 });
 
+//when the user selects a color on the picker it will change the global var which affects change color func
 function colorSelected(element){
     currentColor = element.value;
 }
 
+
+//initiate the board
 addDivs(20);
